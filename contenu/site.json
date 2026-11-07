@@ -2,11 +2,20 @@
   "bandeau": "Cousu main dans le Gard",
   "titre": "Fait main\ndans le Gard.",
   "accroche": "Trousses, pochettes et sacoches pour l'outdoor et le quotidien, en matières récupérées ou techniques.",
-  "photo_accueil": "",
+  "photo_accueil": "/images/1791042838 (12).webp",
   "atouts": [
-    { "titre": "Matières récupérées", "texte": "PP tissé de big bags, découpé et lavé à l'atelier." },
-    { "titre": "Cousu sur Singer 20U", "texte": "Chaque pièce est assemblée à la main, une par une." },
-    { "titre": "Fait pour durer", "texte": "Du matériel simple, solide, qui se répare." }
+    {
+      "titre": "Matières récupérées",
+      "texte": "PP tissé de big bags, découpé et lavé à l'atelier."
+    },
+    {
+      "titre": "Cousu sur Singer 20U",
+      "texte": "Chaque pièce est assemblée à la main, une par une."
+    },
+    {
+      "titre": "Fait pour durer",
+      "texte": "Du matériel simple, solide, qui se répare."
+    }
   ],
   "produits_intro": "Petites séries, selon la matière disponible.",
   "case_bientot": true,
@@ -16,15 +25,7 @@
   "fibre": "Du matériel technique, fait pour durer.",
   "histoire_suite": "C'est ce qui me fait avancer : choisir la bonne matière, renforcer les coutures, penser chaque pièce pour qu'elle serve longtemps et qu'elle se répare. Je veux fabriquer du matériel le plus respectueux possible de l'environnement, en matières recyclées ou techniques, parce qu'un objet qui dure, c'est un objet qu'on ne rachète pas.\n\nC'est un pari, et j'ai envie de le relever.",
   "note_drisse": "la corde qui hisse les voiles. On l'utilise aussi en escalade.",
-  "photos_atelier": {
-    "grande": "",
-    "petite_1": "",
-    "petite_2": ""
-  },
-  "marches": [],
   "contact_titre": "Une question,\nune commande ?",
   "contact_texte": "Écris-moi : je réponds à chaque message, et je peux coudre sur demande.",
-  "mail": "",
-  "instagram": "",
   "tiktok": "https://www.tiktok.com/@drisse.atelier"
 }
