@@ -1,0 +1,521 @@
+/* DRISSE : feuille de style du site.
+   Les couleurs et les tailles principales se changent ici, dans :root. */
+
+@font-face {
+  font-family: "Rubik";
+  src: url("fonts/rubik-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("fonts/rubik-black.woff2") format("woff2");
+  font-weight: 900;
+  font-display: swap;
+}
+
+:root {
+  --noir: #000000;
+  --beige: #ede6d6;
+  --beige-doux: rgba(237, 230, 214, 0.68);
+  --filet: rgba(237, 230, 214, 0.3);
+  --emplacement: rgba(237, 230, 214, 0.07);
+  --marge: clamp(1rem, 4vw, 3rem);
+  --largeur: 84rem;
+  --espace-section: clamp(4rem, 9vw, 8rem);
+  --police: "Rubik", "Helvetica Neue", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--noir);
+  color: var(--beige);
+  font-family: var(--police);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+dl,
+dd {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--beige);
+  outline-offset: 3px;
+}
+
+.conteneur {
+  width: min(100% - 2 * var(--marge), var(--largeur));
+  margin-inline: auto;
+}
+
+.evitement {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 20;
+  padding: 0.6rem 1rem;
+  background: var(--beige);
+  color: var(--noir);
+}
+
+.evitement:focus {
+  top: 0.5rem;
+}
+
+/* Les informations encore manquantes : faciles à retrouver. */
+.a-completer {
+  display: inline-block;
+  padding: 0.05em 0.45em;
+  border: 1px solid var(--beige);
+  white-space: nowrap;
+}
+
+.a-completer--long {
+  white-space: normal;
+}
+
+/* En-tête */
+.entete {
+  background: var(--noir);
+  border-bottom: 1px solid var(--filet);
+}
+
+.entete__interieur {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-block: 0.85rem;
+}
+
+.logo {
+  display: block;
+}
+
+.logo img {
+  width: auto;
+  height: 1.75rem;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  font-size: 0.9375rem;
+}
+
+.nav a {
+  padding-block: 0.3rem;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 48rem) {
+  .entete {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .logo img {
+    height: 2.25rem;
+  }
+
+  .nav {
+    gap: 2.25rem;
+    font-size: 1rem;
+  }
+
+  [id] {
+    scroll-margin-top: 5rem;
+  }
+}
+
+/* Photos et emplacements photo */
+.photo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  padding: 1rem;
+  overflow: hidden;
+  background: var(--emplacement);
+}
+
+.photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo:has(img) .photo__repere {
+  display: none;
+}
+
+.photo__repere {
+  max-width: 24rem;
+  color: var(--beige-doux);
+  font-size: 0.875rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.photo__repere strong {
+  display: block;
+  color: var(--beige);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* Haut de page */
+.accueil__photo {
+  aspect-ratio: 4 / 5;
+}
+
+.accueil__contenu {
+  padding-block: clamp(1.75rem, 4vw, 3.5rem) 0;
+}
+
+.accueil h1 {
+  font-size: clamp(3.25rem, 11.5vw, 11rem);
+  line-height: 0.92;
+}
+
+.accueil__suite {
+  display: grid;
+  gap: 1.5rem;
+  justify-items: start;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.accueil__suite p {
+  max-width: 30rem;
+  font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+  line-height: 1.4;
+}
+
+.bouton {
+  display: inline-block;
+  padding: 0.85rem 1.5rem;
+  border: 1px solid var(--beige);
+  background: var(--beige);
+  color: var(--noir);
+  text-decoration: none;
+}
+
+.bouton:hover {
+  background: var(--noir);
+  color: var(--beige);
+}
+
+@media (min-width: 48rem) {
+  .accueil__photo {
+    aspect-ratio: 16 / 9;
+    max-height: 56vh;
+  }
+
+  .accueil__suite {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    justify-items: stretch;
+    gap: 3rem;
+  }
+}
+
+/* Sections */
+.section {
+  padding-top: var(--espace-section);
+}
+
+.pied {
+  margin-top: var(--espace-section);
+}
+
+.section__titre {
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+}
+
+/* Produits : la grille accueille autant de produits que nécessaire. */
+.produits {
+  display: grid;
+  gap: clamp(3rem, 7vw, 6rem);
+}
+
+.produit {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.produit__photo {
+  aspect-ratio: 4 / 5;
+}
+
+.produit__texte {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.produit__nom {
+  font-size: clamp(1.75rem, 3vw, 2.625rem);
+  line-height: 1.05;
+}
+
+.produit__detail {
+  aspect-ratio: 4 / 3;
+  margin-top: auto;
+}
+
+.fiche > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  padding-block: 0.7rem;
+  border-top: 1px solid var(--filet);
+}
+
+.fiche > div:last-child {
+  border-bottom: 1px solid var(--filet);
+}
+
+.fiche dt {
+  color: var(--beige-doux);
+}
+
+.fiche__prix dd {
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.lien {
+  align-self: flex-start;
+}
+
+@media (min-width: 60rem) {
+  .produit {
+    grid-template-columns: 7fr 5fr;
+  }
+
+  /* Un produit sur deux inverse la photo et le texte. */
+  .produit:nth-child(even) .produit__photo {
+    order: 2;
+  }
+}
+
+/* L'atelier */
+.atelier__grande {
+  aspect-ratio: 4 / 3;
+}
+
+.atelier {
+  display: grid;
+  gap: clamp(2rem, 5vw, 5rem);
+  margin-top: clamp(2rem, 5vw, 4rem);
+}
+
+.atelier__texte {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 36rem;
+}
+
+.atelier__chapo {
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.atelier__note {
+  padding-top: 1rem;
+  border-top: 1px solid var(--filet);
+  color: var(--beige-doux);
+  font-size: 0.9375rem;
+}
+
+.atelier__photos {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  align-items: start;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.atelier__matiere {
+  aspect-ratio: 4 / 5;
+}
+
+.atelier__gabarits {
+  aspect-ratio: 1;
+  margin-top: clamp(3rem, 9vw, 7rem);
+}
+
+@media (min-width: 48rem) {
+  .atelier__grande {
+    aspect-ratio: 21 / 9;
+  }
+}
+
+@media (min-width: 60rem) {
+  .atelier {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+
+/* Où acheter */
+.marches {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.marches th,
+.marches td {
+  padding: 1rem 0.75rem 1rem 0;
+  border-top: 1px solid var(--filet);
+  font-weight: 500;
+  vertical-align: baseline;
+}
+
+.marches thead th {
+  padding-block: 0 0.6rem;
+  border-top: 0;
+  color: var(--beige-doux);
+}
+
+.marches tbody th {
+  width: 40%;
+}
+
+.marches tbody tr:last-child > * {
+  border-bottom: 1px solid var(--filet);
+}
+
+/* Contact */
+.contact > div {
+  display: grid;
+  gap: 0.25rem 2rem;
+  padding-block: 1.1rem;
+  border-top: 1px solid var(--filet);
+}
+
+.contact > div:last-child {
+  border-bottom: 1px solid var(--filet);
+}
+
+.contact dt {
+  color: var(--beige-doux);
+}
+
+.contact dd {
+  font-size: clamp(1.375rem, 3.5vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.contact dd .a-completer {
+  font-size: 1.125rem;
+}
+
+@media (min-width: 40rem) {
+  .contact > div {
+    grid-template-columns: 10rem 1fr;
+    align-items: baseline;
+  }
+}
+
+/* Pied de page */
+.pied {
+  padding-block: 1.75rem;
+  border-top: 1px solid var(--filet);
+  color: var(--beige-doux);
+  font-size: 0.9375rem;
+}
+
+.pied__interieur {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+}
+
+/* Mentions légales */
+.legal {
+  padding-top: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.legal h1 {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+}
+
+.legal section {
+  max-width: 44rem;
+  margin-bottom: 2.5rem;
+}
+
+.legal h2 {
+  margin-bottom: 1rem;
+  font-size: 1.625rem;
+  line-height: 1.15;
+}
