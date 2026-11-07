@@ -12,7 +12,6 @@ Dans `src/index.html`, des repères en français indiquent quoi faire :
 - **Photos** : mettre le fichier dans `src/images`, puis retirer les marques de commentaire (`<!--` et `-->`) de la ligne `<img …>` et corriger le nom du fichier si besoin. Le logo est déjà en place.
 - **Infos manquantes** : chercher `[À COMPLÉTER]` dans `src/index.html` et `src/mentions-legales.html`.
 
-## Publier sur Cloudflare Pages
+## Publier sur GitHub Pages
 
-- Commande de build : `npm run build`
-- Dossier de sortie : `dist`
+Le site se publie tout seul sur https://drisse-atelier.fr à chaque mise à jour de la branche `main` (fichier `.github/workflows/pages.yml`). L'onglet **Actions** du dépôt montre si la publication a réussi.
