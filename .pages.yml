@@ -126,7 +126,7 @@ content:
         description: "Une ligne vide pour changer de paragraphe"
         type: text
       - name: note_drisse
-        label: Note « Drisse : … »
+        label: "Note « Drisse : … »"
         type: string
       - name: photos_atelier
         label: Photos de l'atelier
