@@ -1,0 +1,189 @@
+# Réglages de l'espace d'administration Pages CMS (https://app.pagescms.org).
+# Chaque enregistrement fait une mise à jour sur main, et le site se republie tout seul.
+
+media:
+  input: src/images
+  output: /images
+
+content:
+  - name: produits
+    label: Produits
+    type: collection
+    path: contenu/produits
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: nom
+      fields: [nom, prix, en_ligne]
+      sort: [ordre, nom]
+    fields:
+      - name: nom
+        label: Nom du produit
+        type: string
+        required: true
+      - name: prix
+        label: Prix
+        description: "Avec le symbole, par exemple : 30 €"
+        type: string
+      - name: en_ligne
+        label: Visible sur le site
+        type: boolean
+        default: true
+      - name: ordre
+        label: Ordre d'affichage
+        description: "1 = en premier"
+        type: number
+        default: 10
+      - name: photo
+        label: Photo principale
+        type: image
+      - name: photos
+        label: Autres photos
+        type: image
+        options:
+          multiple: true
+      - name: etiquette
+        label: Étiquette sur la carte
+        description: "Petit mot sur la photo, par exemple : Récupéré"
+        type: string
+      - name: pastille
+        label: Pastille sur la fiche
+        description: "Par exemple : Matière récupérée"
+        type: string
+      - name: description
+        label: Description
+        description: "Une ligne vide pour changer de paragraphe"
+        type: text
+      - name: matiere
+        label: Matière
+        type: string
+      - name: dimensions
+        label: Dimensions
+        type: string
+      - name: poids
+        label: Poids
+        type: string
+      - name: fabrication
+        label: Fabrication
+        type: string
+        default: À la main, dans le Gard
+      - name: points
+        label: Points forts
+        type: string
+        list: true
+
+  - name: site
+    label: Textes du site
+    type: file
+    path: contenu/site.json
+    format: json
+    fields:
+      - name: bandeau
+        label: Bande du haut
+        type: string
+      - name: titre
+        label: Grand titre
+        description: "Un retour à la ligne = un retour à la ligne sur le site"
+        type: text
+      - name: accroche
+        label: Phrase sous le titre
+        type: text
+      - name: photo_accueil
+        label: Grande photo d'accueil
+        type: image
+      - name: atouts
+        label: Les trois atouts
+        type: object
+        list: true
+        fields:
+          - name: titre
+            label: Titre
+            type: string
+          - name: texte
+            label: Texte
+            type: string
+      - name: produits_intro
+        label: Phrase à côté de « Produits »
+        type: string
+      - name: case_bientot
+        label: Afficher la case « Bientôt » dans les produits
+        type: boolean
+      - name: bientot_texte
+        label: Texte de la case « Bientôt »
+        type: string
+      - name: histoire_titre
+        label: Histoire, titre
+        type: string
+      - name: histoire_debut
+        label: Histoire, début
+        description: "Une ligne vide pour changer de paragraphe"
+        type: text
+      - name: fibre
+        label: Phrase « Ma fibre »
+        type: string
+      - name: histoire_suite
+        label: Histoire, suite
+        description: "Une ligne vide pour changer de paragraphe"
+        type: text
+      - name: note_drisse
+        label: Note « Drisse : … »
+        type: string
+      - name: photos_atelier
+        label: Photos de l'atelier
+        type: object
+        fields:
+          - name: grande
+            label: Grande photo
+            type: image
+          - name: petite_1
+            label: Petite photo 1
+            type: image
+          - name: petite_2
+            label: Petite photo 2
+            type: image
+      - name: marches
+        label: Où acheter (marchés)
+        description: "La section apparaît dès qu'un marché est ajouté"
+        type: object
+        list: true
+        fields:
+          - name: date
+            label: Date
+            type: string
+          - name: lieu
+            label: Lieu
+            type: string
+      - name: contact_titre
+        label: Contact, titre
+        type: text
+      - name: contact_texte
+        label: Contact, phrase
+        type: text
+      - name: mail
+        label: Adresse mail
+        type: string
+      - name: instagram
+        label: Instagram (lien ou @pseudo)
+        type: string
+      - name: tiktok
+        label: TikTok (lien ou @pseudo)
+        type: string
+
+  - name: mentions
+    label: Mentions légales
+    type: file
+    path: contenu/mentions.json
+    format: json
+    fields:
+      - name: nom
+        label: Nom ou raison sociale
+        type: string
+      - name: adresse
+        label: Adresse
+        type: string
+      - name: siret
+        label: SIRET
+        type: string
+      - name: contact
+        label: Contact (mail ou téléphone)
+        type: string
