@@ -95,6 +95,8 @@ ${contenu}
       <a href="mentions-legales.html">Mentions légales</a>
     </div>
   </footer>
+  <!-- Statistiques de visite : Cloudflare Web Analytics (sans cookies) -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "ad04ecaae732474285681f6a8cb2f818"}'></script>
 </body>
 </html>
 `;
