@@ -159,9 +159,6 @@ content:
       - name: contact_texte
         label: Contact, phrase
         type: text
-      - name: mail
-        label: Adresse mail
-        type: string
       - name: instagram
         label: Instagram (lien ou @pseudo)
         type: string
