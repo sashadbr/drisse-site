@@ -202,7 +202,6 @@ ${marches.length ? `
           <p>${esc(site.contact_texte)}</p>
         </div>
         <dl class="contact__liste">
-          <div><dt>Mail</dt><dd>${site.mail ? `<a href="mailto:${esc(site.mail.trim())}">${esc(site.mail.trim())}</a>` : aCompleter}</dd></div>
           <div><dt>Instagram</dt><dd>${reseau(site.instagram, "https://www.instagram.com/")}</dd></div>
           <div><dt>TikTok</dt><dd>${reseau(site.tiktok, "https://www.tiktok.com/@")}</dd></div>
         </dl>
