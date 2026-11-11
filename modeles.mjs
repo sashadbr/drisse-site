@@ -6,7 +6,10 @@ const esc = (s = "") =>
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
+    .replaceAll('"', "&quot;")
+    // Espace insécable avant ? ! : ; » (typographie française).
+    .replace(/ ([?!:;»])/g, "\u00a0$1")
+    .replace(/« /g, "«\u00a0");
 
 // Texte sur plusieurs lignes : un retour à la ligne devient <br>.
 const lignes = (s = "") => esc(s.trim()).replaceAll("\n", "<br>");
@@ -24,7 +27,8 @@ const aCompleter = '<span class="a-completer">[À COMPLÉTER]</span>';
 const ouACompleter = (s) => (s && String(s).trim() ? esc(s) : aCompleter);
 
 // Chemin d'image : « /images/x.jpg » ou « images/x.jpg » donnent « images/x.jpg ».
-const image = (s = "") => String(s).trim().replace(/^\/+/, "");
+// Les espaces et parenthèses des noms de fichiers sont encodés pour l'adresse.
+const image = (s = "") => encodeURI(String(s ?? "").trim().replace(/^\/+/, ""));
 
 const photo = (classe, src, alt, repere) =>
   `<figure class="photo ${classe}">${
@@ -91,6 +95,8 @@ ${contenu}
       <a href="mentions-legales.html">Mentions légales</a>
     </div>
   </footer>
+  <!-- Statistiques de visite : Cloudflare Web Analytics (sans cookies) -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "ad04ecaae732474285681f6a8cb2f818"}'></script>
 </body>
 </html>
 `;
@@ -213,7 +219,7 @@ ${marches.length ? `
 }
 
 export function fiche(p, avecMarches) {
-  const photos = (p.photos || []).map(image).filter(Boolean);
+  const photos = (p.photos || []).filter((s) => s && String(s).trim());
   const contenu = `    <div class="conteneur">
     <nav class="ariane" aria-label="Fil d'Ariane">
       <a href="index.html#produits">Produits</a><span aria-hidden="true">/</span><span aria-current="page">${esc(p.nom)}</span>
